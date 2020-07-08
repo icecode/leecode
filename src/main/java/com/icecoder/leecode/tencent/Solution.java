@@ -10,8 +10,10 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
-        System.out.println(threeSum(new int[]{-2, 0, 1, 1, 2}));
+        //System.out.println("res:" + threeSumClosest(new int[]{-1, 2, 1, -4}, 2));
+        //System.out.println("res:" + threeSumClosest(new int[]{-1, 2, 1, -4}, 1));
+        //System.out.println("res:" + threeSumClosest(new int[]{-1, 2, 1, -4}, 0));
+        //System.out.println(threeSum(new int[]{-2, 0, 1, 1, 2}));
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
