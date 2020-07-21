@@ -1,7 +1,6 @@
 package com.icecoder.leecode.tencent;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * @author libing
@@ -11,8 +10,8 @@ import java.util.Collections;
 public class Solution2 {
 
     public static void main(String[] args) {
-        System.out.println(removeDuplicates(new int[]{1,1,2}));
-        System.out.println(removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4}));
+        System.out.println(removeDuplicates(new int[]{1, 1, 2}));
+        System.out.println(removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
     }
 
     public static int removeDuplicates(int[] nums) {
@@ -23,6 +22,6 @@ public class Solution2 {
                 nums[++j] = nums[i];
             }
         }
-        return j+1;
+        return j + 1;
     }
 }
