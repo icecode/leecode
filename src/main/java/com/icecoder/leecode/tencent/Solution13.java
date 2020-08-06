@@ -34,6 +34,11 @@ public class Solution13 {
         ListNode(int x) {
             val = x;
         }
+
+        @Override
+        public String toString() {
+            return "[Node:" + val + "]";
+        }
     }
 
     public static void main(String[] args) {
