@@ -23,18 +23,16 @@ import org.w3c.dom.NodeList;
 public class Solution18 {
 
     public static void main(String[] args) {
-        ListNode v1 = new ListNode(1);
+        ListNode v1 = new ListNode(3);
         ListNode v2 = new ListNode(2);
-        ListNode v3 = new ListNode(3);
+        ListNode v3 = new ListNode(0);
         ListNode v4 = new ListNode(4);
+        ListNode v5 = new ListNode(5);
         v1.next = v2;
         v2.next = v3;
-        System.out.println("ret:" + new Solution18().hasCycle(v1));
-        v3.next = v1;
-        System.out.println("ret:" + new Solution18().hasCycle(v1));
         v3.next = v4;
-        System.out.println("ret:" + new Solution18().hasCycle(v1));
-        v4.next = v1;
+        v4.next = v5;
+        v5.next = v3;
         System.out.println("ret:" + new Solution18().hasCycle(v1));
     }
 
@@ -47,6 +45,7 @@ public class Solution18 {
             p = p.next.next;
             head = head.next;
             if (p == head) {
+                System.out.println("p:" + p.val);
                 return true;
             }
         }
