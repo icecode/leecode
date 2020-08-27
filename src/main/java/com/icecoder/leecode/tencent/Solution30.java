@@ -1,5 +1,7 @@
 package com.icecoder.leecode.tencent;
 
+import java.util.Arrays;
+
 /**
  * @author libing
  * @version 1.0
@@ -9,7 +11,8 @@ public class Solution30 {
 
     public static void main(String[] args) {
         System.out.println("ret:" + new Solution30().findKthLargest(new int[]{3,2,1,5,6,4}, 2));
-        System.out.println("ret:" + new Solution30().findKthLargest(new int[]{3,2,3,1,2,4,5,5,6}, 4));
+        System.out.println("ret:" + new Solution30().findKthLargest(new int[]{1}, 1));
+        System.out.println("ret:" + new Solution30().findKthLargest(new int[]{ 3, 2, 3, 1, 2, 4, 5, 5, 6}, 4));
     }
 
     /**
@@ -37,8 +40,8 @@ public class Solution30 {
      * @param k
      * @return
      */
-    public int findKthLargest(int[] nums, int k) {
-        for (int i = 0; i < nums.length; i++) {
+    public int findKthLargest2(int[] nums, int k) {
+        for (int i = 0; i < k; i++) {
             for (int j = i; j < nums.length; j++) {
                 if (nums[i] < nums[j]) {
                     int tmp = nums[i];
@@ -48,5 +51,48 @@ public class Solution30 {
             }
         }
         return nums[k - 1];
+    }
+
+    public int findKthLargest(int[] nums, int k) {
+        return findKthLargest(nums, k - 1, 0, nums.length - 1);
+    }
+
+    public int partition(int[] nums, int start, int end) {
+        int i = start, j = end + 1;
+        int pivot = nums[start];
+        int tmp;
+        while (true) {
+            while (nums[++i] > pivot) {
+                if (i == end) {
+                    break;
+                }
+            }
+            while (nums[--j] < pivot) {
+                if (j == start) {
+                    break;
+                }
+            }
+            if (i >= j) {
+                break;
+            }
+            tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+        }
+        nums[start] = nums[j];
+        nums[j] = pivot;
+        return j;
+    }
+
+    public int findKthLargest(int[] nums, int k, int start, int end) {
+        if (start >= end) {
+            return nums[k];
+        }
+        int sk = partition(nums, start, end);
+        if (sk >= k) {
+            return findKthLargest(nums, k, start, sk - 1);
+        } else {
+            return findKthLargest(nums, k, sk + 1, end);
+        }
     }
 }
