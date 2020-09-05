@@ -37,6 +37,7 @@ public class Solution34 {
             return lowestCommonAncestor2(root, p, q);
         }
     }
+
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
         if (root.val == p.val || root.val == q.val) {
             return root;
